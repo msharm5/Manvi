@@ -1,0 +1,29 @@
+#Web Mining Assignment 1
+import requests as req
+
+#Ques 1: Google search for 'Tim Berns Lee'
+resp = req.get("https://www.google.com/search?sxsrf=ACYBGNQmNz5gpKzk12CPj9dhDqzPV2oS-Q%3A1580401306121&source=hp&ei=mgIzXt6vBOSN_Qa115SoDQ&q=Tim+Berns+Lee&oq=Tim+Berns+Lee&gs_l=psy-ab.3..0i10l10.412.3486..4253...0.0..0.102.1068.12j1......0....1..gws-wiz.......0i131j0j35i39.He4pUfdnG0E&ved=0ahUKEwje5M3T3avnAhXkRt8KHbUrBdUQ4dUDCAg&uact=5")
+
+print(resp.content)
+print(resp.status_code)
+print(resp.headers)
+#Status code : 200(Request Successful)
+
+
+#Ques 2 : A POST request to a website that does not accept POST Methods
+resp1 = req.post("https://www.google.com",data = {'Username':'Manvi','Password':'102030'})
+
+print(resp1.content)
+print(resp1.status_code)
+print(resp1.headers)
+#status code : 405(Request not allowed)
+
+
+
+#Ques 3 :  A request to a URL that does not exist
+resp2 = req.get("https://www.google.com/webmining660")
+
+print(resp2.content)
+print(resp2.status_code)
+print(resp2.headers)
+#status code : 404(Page not found)
